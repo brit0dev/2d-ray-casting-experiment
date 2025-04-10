@@ -3,10 +3,35 @@ class Particle {
         this.pos = createVector(width / 2, height / 2);
         this.rays = [];
 
-        for (let i = 0; i < 360; i+=10) {
-            this.rays[i] = new Ray            
+        for (let a = 0; a < 360; a+=10) {
+            this.rays.push(new Ray(this.pos, radians(a)));
         }
+
+				console.log(this.rays)
     }
 
+		update(x,y){
+			this.pos.set(x,y)
+		}
+
+		look(wall){
+			for (const ray of this.rays) {
+				let pt = ray.cast(wall);
+
+				if(pt){
+					line(this.pos.x, this.pos.y, pt.x, pt.y);
+
+				}
+			}
+		}
+
+    show(){
+			fill(255);
+			ellipse(this.pos.x,this.pos.y, 4);
+			for (let i = 0; i < this.rays.length; i++) {
+				this.rays[i].show();
+				//console.log(i)
+			}
+		}
 
 }

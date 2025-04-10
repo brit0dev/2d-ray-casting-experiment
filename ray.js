@@ -1,15 +1,14 @@
 class Ray {
     //constructor(x1,y1,x2,y2) {
-    constructor(x, y){
-      this.pos = createVector(x,y);
-      //this.b = createVector(x2,y2);
-      this.dir = createVector(100,0)
+    constructor(pos, angle){
+      this.pos = pos;
+      this.dir = p5.Vector.fromAngle(angle);
     }
     
     lookAt(x, y){
       this.dir.x = x - this.pos.x;
       this.dir.y = y - this.pos.y;
-      //this.dir.normalize();
+      this.dir.normalize();
     }
 
     show() {
@@ -17,7 +16,7 @@ class Ray {
       //strokeWeight(2)
       push();
       translate(this.pos.x, this.pos.y);
-      line(0 ,0 ,this.dir.x * 1,this.dir.y * 1);
+      line(0 ,0 ,this.dir.x * 10,this.dir.y * 10);
       pop();
     }
 
