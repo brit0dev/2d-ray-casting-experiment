@@ -1,6 +1,8 @@
 let walls = [];
 let ray;
 let particle;
+let xoff = 0
+let yoff = 0
 
 function setup() {
   createCanvas(400, 400);
@@ -13,6 +15,11 @@ function setup() {
 
     walls[i] = new Boundary(x1,y1,x2,y2)
   }
+
+  walls.push(new Boundary(0,0,width, 0))
+  walls.push(new Boundary(0,0,0, height))
+  walls.push(new Boundary(0,height,width, height))
+  walls.push(new Boundary(width ,0,width, height))
 
   wall = new Boundary(100,100,200,300);
   particle = new Particle();

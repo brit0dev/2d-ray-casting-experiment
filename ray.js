@@ -12,7 +12,6 @@ class Ray {
     }
 
     show() {
-      stroke(255)
       //strokeWeight(20)
       push();
       translate(this.pos.x, this.pos.y);
