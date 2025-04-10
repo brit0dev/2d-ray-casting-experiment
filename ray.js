@@ -13,7 +13,7 @@ class Ray {
 
     show() {
       stroke(255)
-      //strokeWeight(2)
+      //strokeWeight(20)
       push();
       translate(this.pos.x, this.pos.y);
       line(0 ,0 ,this.dir.x * 10,this.dir.y * 10);
